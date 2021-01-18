@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import AddNewCertificateButton from './AddNewCertificateButton';
-import CertificateInfoTitles from './CertificateInfoTitles';
-import '../index.css';
+import React from "react";
+import AddNewCertificateButton from "./AddNewCertificateButton";
+import CertificateInfoTitles from "./CertificateInfoTitles";
+import "../index.css";
 
-export default function TitleInfo(){
-    return (
-        <div className="certificate-title">
-            <CertificateInfoTitles/>
-            <AddNewCertificateButton/>
-        </div>
-    )
-}
+const TitleInfo = () => {
+  return (
+    <div className="certificate-title">
+      <CertificateInfoTitles />
+      <AddNewCertificateButton />
+    </div>
+  );
+};
+
+export default TitleInfo;

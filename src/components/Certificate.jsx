@@ -1,55 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import AddNewCertificateButton from './AddNewCertificateButton';
-import CertificateInfoItem from './CertificateInfoItem';
-import CertificateInfoTitles from './CertificateInfoTitles';
-import TitleInfo from './TitleInfo';
+import React, { useEffect, useState } from "react";
+import TitleInfo from "./TitleInfo";
+import configData from "../config/config.json";
+import CertificateActionButtons from "./CertificateActionButtons";
+import CertificateInfo from "./CertificateInfo";
 
-export default function Certificate() {
+const Certificate = () => {
+  const [certificatesData, setCertificatesData] = useState(null);
 
-    const [certificatesData, setCertificatesData] = useState(null);
-    const certificatesDataUrl = 'http://localhost:8080/giftCertificates';
+  useEffect(() => {
+    fetch(configData.API_URL)
+      .then((response) => response.json())
+      .then(setCertificatesData);
+  }, []);
 
-    useEffect(() => {
-        fetch(certificatesDataUrl)
-            .then((response) => response.json())
-            .then(setCertificatesData);
-    }, []);
+  if (!certificatesData) {
+    return <h1>Loading</h1>;
+  }
 
-    if (certificatesData === null) {
-        return (
-            <h1>Loading</h1>
+  return (
+    <>
+      <TitleInfo />
+      {certificatesData._embedded.responseGiftCertificateDtoList.map(
+        (certificate) => (
+          <div className="certificate" key={certificate.id}>
+            <CertificateInfo certificate={certificate} />
+            <CertificateActionButtons />
+          </div>
         )
-    }
+      )}
+    </>
+  );
+};
 
-    const deleteCertificate = (certificateId) => {
-        const requestOptions = {
-            method: 'DELETE'
-        };
-        fetch("http://localhost:8080/giftCertificates/"+certificateId, requestOptions);
-    }
-    
-
-    return (
-        <>
-        <TitleInfo/>
-       { certificatesData._embedded.responseGiftCertificateDtoList.map(certificate =>
-            <div className="certificate" key={certificate.id}>
-                <div className="certificate-info">
-                    <CertificateInfoItem infoItem={certificate.name} />
-                    <CertificateInfoItem infoItem={certificate.price} />
-                    <CertificateInfoItem infoItem={certificate.tags.map(tag =>
-                        " " + tag.name + " ")} />
-                    <CertificateInfoItem infoItem={certificate.duration} />
-                </div>
-                <div className="buttons">
-                    <button className="action-button">View</button>
-                    <button className="action-button" onClick={deleteCertificate}>Delete</button>
-                    <button className="action-button">Update</button>
-                </div>
-            </div>)
-}
-        </>
-    )
-
-}
-
+export default Certificate;

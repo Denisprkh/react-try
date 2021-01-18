@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-export default function AddNewCertificateButton(){
+const AddNewCertificateButton = () => {
+  //TODO
 
-    //TODO
+  return <button className="action-button add-button">Add new</button>;
+};
 
-    return(
-        <button className="action-button add-button">Add new</button>
-    )
-}
+export default AddNewCertificateButton;

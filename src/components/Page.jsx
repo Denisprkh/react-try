@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Certificate from './Certificate';
-import Form from './Form';
+import React from "react";
+import Certificate from "./Certificate";
+import Form from "./Form";
 
-export default function Page() {
-    return (
-        <div className="container">
-            <div className="main-info">
-                <Certificate />
-                <Form/>
-            </div>
-        </div>
-    )
-}
+const Page = () => {
+  return (
+    <div className="container">
+      <div className="main-info">
+        <Certificate />
+        <Form />
+      </div>
+    </div>
+  );
+};
+
+export default Page;

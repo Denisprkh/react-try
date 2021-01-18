@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../index.css';
+import CertificateActionButtons from './CertificateActionButtons';
 
-export default function CertificateInfoItem({infoItem}){
+const CertificateInfoItem = ({infoItem}) => {
     return(
         <div className="info-item">
             {infoItem}
         </div>
     )
 }
+
+export default CertificateInfoItem;

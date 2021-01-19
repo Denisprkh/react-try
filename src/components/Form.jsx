@@ -44,8 +44,11 @@ class Form extends React.Component {
 
   render() {
     const { name, price, description, duration, tags } = this.state;
+    
     return (
-      <form onSubmit={this.handleSumbit}>
+        <>
+    <h1>FDF</h1>
+      <form onSubmit={this.handleSumbit} className="creation-form">
         <input
           name={"name"}
           placeholder="name"
@@ -78,6 +81,7 @@ class Form extends React.Component {
         />
         <input type="submit" />
       </form>
+      </>
     );
   }
 }

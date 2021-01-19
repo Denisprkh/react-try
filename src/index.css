@@ -1,13 +1,89 @@
-body {
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header{
+  height: 75px;
+  background-color:#434242;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+}
+
+.certificate-info {
+  font-size: 13px;
+  color: #373737;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 600px;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.buttons {
+  height: 35px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-info{
+  margin-top: 140px;
+  margin-left: 100px;
+}
+
+.action-button{
+  padding-top: 3px;
+  font-size: 13px;
+  line-height: 21px;
+  color: white;
+  text-align: center;
+  background-color:#ac6e6e;
+  border: 2px solid #fff;
+  width: 70px;
+  cursor: pointer;
+}
+
+.certificate{
+  margin: 0 auto;
+  display: flex;
+}
+
+.info-item{
+  border: 1px solid #fff;
+  border-image: linear-gradient(180deg, #FACD68 0%, #FC76B3 100%);
+  border-image-slice: 1;
+  font-size: 13px;
+  height: 35px;
+  color: #373737;
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-left: 15px;
+}
+
+.info-titles{
+  display: flex;
+  width: 600px;
+}
+
+.certificate-title{
+  display: flex;
+}
+
+.add-button{
+  height: 35px;
+  margin-left: 50px;
 }
